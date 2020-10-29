@@ -15,7 +15,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 kubectl version
 
-How to install jq,
+- How to install jq,
 Run commands :
 
 sudo apt-get install jq
