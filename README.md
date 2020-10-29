@@ -7,6 +7,10 @@ Reference link : https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview
     
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+- Login into az,
+*Run command* : 
+    az login
+
 - How to install Kubectl,
 *Run commands* :
 
