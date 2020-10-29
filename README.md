@@ -1,4 +1,4 @@
-**NOTE** : Need Ubuntu app in your windows machine so that it works as linux client and you can run the commands via cli.
+**NOTE** : Need Ubuntu app in your windows machine so that it works as a Linux client and you can run the required commands via cli.
 Reference link : https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview
 
 **Pre-requisites** : 
