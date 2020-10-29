@@ -14,7 +14,7 @@ Reference link : https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview
 - How to install Kubectl,
 *Run commands* :
 
-    curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
     
     chmod +x ./kubectl
     
@@ -29,6 +29,7 @@ Reference link : https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview
 
     jq --version
 
+**Implementation** : 
 - For making the Prometheus-AlertManager up and running from your machine,
 *Run command* : 
 
