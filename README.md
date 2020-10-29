@@ -15,6 +15,13 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 kubectl version
 
+How to install jq,
+Run commands :
+
+sudo apt-get install jq
+
+jq --version
+
 - For making the Prometheus-AlertManager up and running from your machine,
 Run command : 
 
