@@ -9,6 +9,7 @@ instances=`cat vm-list`
 startInstance() {
     for instanceName in $instances 
     do
+    echo Starting $instanceName
     az vm start --name $instanceName --resource-group $resourceGroup 
     az vm list-ip-addresses --name $instanceName --resource-group $resourceGroup | grep ipAddress 
     done
