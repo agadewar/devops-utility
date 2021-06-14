@@ -9,27 +9,26 @@ instances=`cat vm-list`
 startInstance() {
     for instanceName in $instances 
     do
-    echo $instanceName
-    #az vm start --name $instanceName --resource-group $resourceGroup 
-    #az vm list-ip-addresses --name $instanceName --resource-group $resourceGroup | grep ipAddress 
+    az vm start --name $instanceName --resource-group $resourceGroup 
+    az vm list-ip-addresses --name $instanceName --resource-group $resourceGroup | grep ipAddress 
     done
 }
 
 stopInstance() {
    for instanceName in $instances 
    do
-   echo $instanceName
-   #az vm deallocate --name $instanceName --resource-group $resourceGroup 
+    echo Stopping $instanceName
+   az vm deallocate --name $instanceName --resource-group $resourceGroup 
    done
 }
 
 if [[ $action == "start" ]]; then
-#echo starting $instanceName
+echo starting $instanceName
 echo 'starting all psr instances'
 startInstance
 
 elif [[ $action == "stop" ]]; then
-#echo $instanceName
+echo $instanceName
 echo 'stopping all psr instances'
 stopInstance
 
