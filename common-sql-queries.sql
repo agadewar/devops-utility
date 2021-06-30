@@ -7,9 +7,9 @@ update org.reportcataloggeneral set isactive = 0 where reportname like 'My Work 
 ---------
 ---Adding MFA User
 [Thursday 10:21 pm] Umesh Kute
-    CREATE USER [karuna.pathade@sapienceanalytics.com] FROM EXTERNAL PROVIDER;
-EXEC sp_addrolemember 'db_datareader', 'karuna.pathade@sapienceanalytics.com';
-EXEC sp_addrolemember 'db_datawriter', 'karuna.pathade@sapienceanalytics.com';
+    CREATE USER [someone@sapienceanalytics.com] FROM EXTERNAL PROVIDER;
+EXEC sp_addrolemember 'db_datareader', 'someone@sapienceanalytics.com';
+EXEC sp_addrolemember 'db_datawriter', 'someone@sapienceanalytics.com';
 
 ----
 WITH perms_cte as
