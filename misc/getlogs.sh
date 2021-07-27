@@ -3,6 +3,23 @@ echo 'Getting credentials'
 az account set --subscription 43e0bf01-5025-40ce-bdaa-c4291177828a
 az aks get-credentials --resource-group sisense-prod-us-black --name sisense-prod-us-black
 
+RED='\033[01;31m'                                                                                                                                                                                          
+YELLOW='\033[0;33m'                                                                                                                                                                                        
+NONE='\033[00m' 
+
+print_help(){                                                                                                                                                                                              
+  echo -e "${YELLOW}Use the following Command:"                                                                                                                                                            
+  echo -e "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"                                                            
+  echo -e "${RED}./<script-name> <logfile name>                                      
+  echo -e "${YELLOW}+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"                                                   
+}
+
+ARG="$#"
+if [[ $ARG -eq 0 ]]; then
+  print_help
+  exit
+fi
+
 #------------------------
 namespace='kube-system'
 log=$1
