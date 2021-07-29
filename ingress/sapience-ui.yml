@@ -1,0 +1,87 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    ingress.kubernetes.io/ssl-redirect: 'true'
+    kubernetes.io/ingress.class: 'nginx'
+    kubernetes.io/tls-acme: 'true'
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+          more_set_headers "X-Frame-Options: SAMEORIGIN";
+          more_set_headers "Content-Security-Policy: frame-ancestors 'self' *.sapienceanalytics.com";
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+  labels:
+    app.kubernetes.io/name: sapience-ui
+  name: sapience-ui
+spec:
+  rules:
+    - host: portal.dev.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port: 
+                number: 80         
+    - host: portal.dev.lab.us.azure.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port:  
+                number: 80
+    - host: portal.dev.lab-black.us.azure.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port:  
+                number: 80
+    - host: app.dev.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port:
+                number: 80 
+    - host: app.dev.lab.us.azure.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port:  
+                number: 80
+    - host: app.dev.lab-black.us.azure.sapienceanalytics.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: sapience-ui
+              port:  
+                number: 80
+  tls:
+    - hosts:
+        - portal.dev.sapienceanalytics.com
+        - portal.dev.lab.us.azure.sapienceanalytics.com
+        - portal.dev.lab-black.us.azure.sapienceanalytics.com
+        - app.dev.sapienceanalytics.com
+        - app.dev.lab.us.azure.sapienceanalytics.com
+        - app.dev.lab-black.us.azure.sapienceanalytics.com
+      secretName: sapience-ui-certs
