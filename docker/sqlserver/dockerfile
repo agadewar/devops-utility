@@ -5,9 +5,11 @@ ENV SA_PASSWORD=EverybodysDoinIt!123
 WORKDIR /tmp
 COPY create_staging.sql .
 COPY create_admin.sql .
+COPY create_edw.sql .
 COPY seed_admin.sql .
 RUN /opt/mssql/bin/sqlservr --accept-eula & sleep 30 \
     && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'EverybodysDoinIt!123' -d master -i /tmp/create_staging.sql \
+    && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'EverybodysDoinIt!123' -d master -i /tmp/create_edw.sql \
     && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'EverybodysDoinIt!123' -d master -i /tmp/create_admin.sql \
     && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'EverybodysDoinIt!123' -d master -i /tmp/seed_admin.sql \
     && pkill sqlservr
@@ -15,6 +17,7 @@ RUN /opt/mssql/bin/sqlservr --accept-eula & sleep 30 \
 FROM mcr.microsoft.com/mssql/server:2019-latest AS release
 WORKDIR /tmp
 COPY create_staging.sql .
+COPY create_edw.sql .
 COPY create_admin.sql .
 COPY seed_admin.sql .
 ENV ACCEPT_EULA=Y
