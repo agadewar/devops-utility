@@ -89,3 +89,8 @@ insert into org.Permission (Entity, Permission, Description, IsActive, ModifiedB
 insert into org.Permission (Entity, Permission, Description, IsActive, ModifiedBy) values ('Report Writer', 'Read', 'Report Writer Read Permission', 1, 'System')
 insert into org.Permission (Entity, Permission, Description, IsActive, ModifiedBy) values ('Report Writer', 'Write', 'Report Writer Write Permission', 1, 'System')
 go
+
+Insert Into org.LicenseType (LicenseTypeName, LicenseTypeDescription, ModifiedBy) Values ('Vue', 'Vue License', 'System')
+Insert Into org.LicenseType (LicenseTypeName, LicenseTypeDescription, ModifiedBy) Values ('BI', 'BI License', 'System')
+Insert Into org.LicenseType (LicenseTypeName, LicenseTypeDescription, ModifiedBy) Values ('Integration', 'Integration', 'System')
+go
